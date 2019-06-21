@@ -1,7 +1,7 @@
 #!/bin/bash
 ##########################################################################
-# This is the EOSIO automated install script for Linux and Mac OS.
-# This file was downloaded from https://github.com/EOSIO/eos
+# This is the SNAX automated install script for Linux and Mac OS.
+# This file was downloaded from https://github.com/SNAX/snax
 #
 # Copyright (c) 2017, Respective Authors all rights reserved.
 #
@@ -27,7 +27,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-# https://github.com/EOSIO/eos/blob/master/LICENSE.txt
+# https://github.com/SNAX/snax/blob/master/LICENSE.txt
 ##########################################################################
    
 
@@ -40,7 +40,7 @@
 	BUILD_DIR="${PWD}/build"
 	CMAKE_BUILD_TYPE=Release
 	TIME_BEGIN=$( date -u +%s )
-   INSTALL_PREFIX="/usr/local/eosio.cdt"
+   INSTALL_PREFIX="/usr/local/snax.cdt"
 	VERSION=1.2
 
 	txtbld=$(tput bold)
@@ -49,31 +49,31 @@
 
    create_symlink() {
       pushd /usr/local/bin &> /dev/null
-      ln -sf ../eosio.cdt/bin/$1 $2
+      ln -sf ../snax.cdt/bin/$1 $2
       popd &> /dev/null
    }
 
    install_symlinks() {
-		printf "\\n\\tInstalling EOSIO.CDT Binary Symlinks\\n\\n"
-      create_symlink "llvm-ranlib eosio-ranlib"
-      create_symlink "llvm-ar eosio-ar"
-      create_symlink "llvm-objdump eosio-objdump"
-      create_symlink "llvm-readelf eosio-readelf"
-      create_symlink "eosio-cc eosio-cc"
-      create_symlink "eosio-cpp eosio-cpp"
-      create_symlink "eosio-ld eosio-ld"
-      create_symlink "eosio-pp eosio-pp"
-      create_symlink "eosio-init eosio-init"
-      create_symlink "eosio-abigen eosio-abigen"
-      create_symlink "eosio-abidiff eosio-abidiff"
-      create_symlink "eosio-wasm2wast eosio-wasm2wast"
-      create_symlink "eosio-wast2wasm eosio-wast2wasm"
+		printf "\\n\\tInstalling SNAX.CDT Binary Symlinks\\n\\n"
+      create_symlink "llvm-ranlib snax-ranlib"
+      create_symlink "llvm-ar snax-ar"
+      create_symlink "llvm-objdump snax-objdump"
+      create_symlink "llvm-readelf snax-readelf"
+      create_symlink "snax-cc snax-cc"
+      create_symlink "snax-cpp snax-cpp"
+      create_symlink "snax-ld snax-ld"
+      create_symlink "snax-pp snax-pp"
+      create_symlink "snax-init snax-init"
+      create_symlink "snax-abigen snax-abigen"
+      create_symlink "snax-abidiff snax-abidiff"
+      create_symlink "snax-wasm2wast snax-wasm2wast"
+      create_symlink "snax-wast2wasm snax-wast2wasm"
    }
    
    create_cmake_symlink() {
-      mkdir -p /usr/local/lib/cmake/eosio.cdt
-      pushd /usr/local/lib/cmake/eosio.cdt &> /dev/null
-      ln -sf ../../../eosio.cdt/lib/cmake/eosio.cdt/$1 $1
+      mkdir -p /usr/local/lib/cmake/snax.cdt
+      pushd /usr/local/lib/cmake/snax.cdt &> /dev/null
+      ln -sf ../../../snax.cdt/lib/cmake/snax.cdt/$1 $1
       popd &> /dev/null
    }
 	if [ ! -d "${BUILD_DIR}" ]; then
@@ -89,13 +89,13 @@
    
 	if ! make install
 	then
-		printf "\\n\\t>>>>>>>>>>>>>>>>>>>> MAKE installing EOSIO has exited with the above error.\\n\\n"
+		printf "\\n\\t>>>>>>>>>>>>>>>>>>>> MAKE installing SNAX has exited with the above error.\\n\\n"
 		exit -1
 	fi
    popd &> /dev/null 
 
    install_symlinks   
-   create_cmake_symlink "eosio.cdt-config.cmake"
+   create_cmake_symlink "snax.cdt-config.cmake"
 
    printf "\n${bldred}\t      ___           ___           ___                       ___\n"
    printf "\t     /  /\\         /  /\\         /  /\\        ___          /  /\\ \n"
@@ -110,4 +110,4 @@
    printf "\t     \\__\\/         \\__\\/         \\__\\/                     \\__\\/ \n${txtrst}"
 
 	printf "\\tFor more information:\\n"
-	printf "\\tEOSIO website: https://eos.io\\n"
+	printf "\\tSNAX website: https://snax\\n"

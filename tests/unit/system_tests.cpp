@@ -1,20 +1,20 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
 #include <string>
 
-#include <eosio/eosio.hpp>
-#include <eosio/tester.hpp>
+#include <snax/snax.hpp>
+#include <snax/tester.hpp>
 
 using std::move;
 using std::string;
 
-using eosio::check;
+using snax::check;
 
-// Definitions in `eosio.cdt/libraries/eosiolib/system.hpp`
-EOSIO_TEST_BEGIN(system_test)
+// Definitions in `snax.cdt/libraries/snaxlib/system.hpp`
+SNAX_TEST_BEGIN(system_test)
    silence_output(true);
 
    // ------------------------------------
@@ -45,9 +45,9 @@ EOSIO_TEST_BEGIN(system_test)
    CHECK_ASSERT("18446744073709551615", []() { check(false, -1ULL);} );
 
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char* argv[]) {
-   EOSIO_TEST(system_test);
+   SNAX_TEST(system_test);
    return has_failed();
 }

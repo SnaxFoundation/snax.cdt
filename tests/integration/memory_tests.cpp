@@ -1,6 +1,6 @@
 #include <boost/test/unit_test.hpp>
-#include <eosio/testing/tester.hpp>
-#include <eosio/chain/abi_serializer.hpp>
+#include <snax/testing/tester.hpp>
+#include <snax/chain/abi_serializer.hpp>
 
 #include <Runtime/Runtime.h>
 
@@ -8,10 +8,10 @@
 
 #include <contracts.hpp>
 
-using namespace eosio;
-using namespace eosio::testing;
-using namespace eosio::chain;
-using namespace eosio::testing;
+using namespace snax;
+using namespace snax::testing;
+using namespace snax::chain;
+using namespace snax::testing;
 using namespace fc;
 
 using mvo = fc::mutable_variant_object;
@@ -31,7 +31,7 @@ BOOST_FIXTURE_TEST_CASE( malloc_tests, tester ) try {
    push_action(N(test), N(mallocpass), N(test), {});
    push_action(N(test), N(mallocpass2), N(test), {});
    BOOST_CHECK_EXCEPTION( push_action(N(test), N(mallocfail), N(test), {}),
-                          eosio_assert_message_exception,
-                          eosio_assert_message_is("failed to allocate pages") );
+                          snax_assert_message_exception,
+                          snax_assert_message_is("failed to allocate pages") );
                           */
 } FC_LOG_AND_RETHROW() }

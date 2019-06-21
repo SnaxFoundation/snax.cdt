@@ -1,18 +1,18 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
-#include <eosio/eosio.hpp>
-#include <eosio/rope.hpp>
-#include <eosio/tester.hpp>
+#include <snax/snax.hpp>
+#include <snax/rope.hpp>
+#include <snax/tester.hpp>
 #include <string>
 
-using namespace eosio::native;
+using namespace snax::native;
 
-EOSIO_TEST_BEGIN(rope_test)
+SNAX_TEST_BEGIN(rope_test)
    silence_output(false);
-   eosio::rope r("test string 0");
+   snax::rope r("test string 0");
    r += ", test string 1";
    r += ", test string 2";
    r += ", test string 3";
@@ -30,10 +30,10 @@ EOSIO_TEST_BEGIN(rope_test)
    s += ", test string 6";
    s += ", test string 7";
 
-   eosio::rope r2 = r + eosio::rope("lhs") + eosio::rope("rhs") + "some string";
+   snax::rope r2 = r + snax::rope("lhs") + snax::rope("rhs") + "some string";
    std::string s2 = s + std::string("lhs") + std::string("rhs") + "some string";
 
-   r2 += eosio::rope("rvalue +=");
+   r2 += snax::rope("rvalue +=");
    s2 += std::string("rvalue +=");
 
    r2 = r2 + r2;   
@@ -42,7 +42,7 @@ EOSIO_TEST_BEGIN(rope_test)
    r2 += "the end";
    s2 += "the end";
    
-   eosio::rope r3(r2);
+   snax::rope r3(r2);
    std::string s3(s2);
 
    REQUIRE_EQUAL(s.compare(std::string(r.c_str())), 0);
@@ -66,9 +66,9 @@ EOSIO_TEST_BEGIN(rope_test)
    }
 
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char** argv) {
-   EOSIO_TEST(rope_test);
+   SNAX_TEST(rope_test);
    return has_failed();
 }

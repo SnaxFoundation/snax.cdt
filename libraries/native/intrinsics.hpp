@@ -1,10 +1,10 @@
-#include <eosio/action.hpp>
+#include <snax/action.hpp>
 #include "intrinsics_def.hpp"
 
 #pragma once
 
-#warning "<eosio/native/intrinsics.hpp> is deprecated use <eosio/intrinsics.hpp>"
-namespace eosio { namespace native {
+#warning "<snax/native/intrinsics.hpp> is deprecated use <snax/intrinsics.hpp>"
+namespace snax { namespace native {
    
    class intrinsics {
       public:
@@ -42,4 +42,4 @@ namespace eosio { namespace native {
          }
    };
 
-}} //ns eosio::native
+}} //ns snax::native

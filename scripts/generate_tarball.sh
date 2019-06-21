@@ -18,15 +18,15 @@ cp -R ${BUILD_DIR}/bin/* ${CDT_PREFIX}/bin
 cp -R ${BUILD_DIR}/licenses/* ${CDT_PREFIX}/licenses
 
 # install cmake modules
-sed "s/_PREFIX_/\/${SPREFIX}/g" ${BUILD_DIR}/modules/EosioCDTMacrosPackage.cmake &> ${CDT_PREFIX}/lib/cmake/${PROJECT}/EosioCDTMacros.cmake
-sed "s/_PREFIX_/\/${SPREFIX}/g" ${BUILD_DIR}/modules/EosioWasmToolchainPackage.cmake &> ${CDT_PREFIX}/lib/cmake/${PROJECT}/EosioWasmToolchain.cmake
+sed "s/_PREFIX_/\/${SPREFIX}/g" ${BUILD_DIR}/modules/SnaxCDTMacrosPackage.cmake &> ${CDT_PREFIX}/lib/cmake/${PROJECT}/SnaxCDTMacros.cmake
+sed "s/_PREFIX_/\/${SPREFIX}/g" ${BUILD_DIR}/modules/SnaxWasmToolchainPackage.cmake &> ${CDT_PREFIX}/lib/cmake/${PROJECT}/SnaxWasmToolchain.cmake
 sed "s/_PREFIX_/\/${SPREFIX}\/${SSUBPREFIX}/g" ${BUILD_DIR}/modules/${PROJECT}-config.cmake.package &> ${CDT_PREFIX}/lib/cmake/${PROJECT}/${PROJECT}-config.cmake
 
 # install scripts
 cp -R ${BUILD_DIR}/scripts/* ${CDT_PREFIX}/scripts 
 
 # install misc.
-cp ${BUILD_DIR}/eosio.imports ${CDT_PREFIX}
+cp ${BUILD_DIR}/snax.imports ${CDT_PREFIX}
 
 # install wasm includes
 cp -R ${BUILD_DIR}/include/* ${CDT_PREFIX}/include
@@ -37,8 +37,8 @@ cp ${BUILD_DIR}/lib/*.a ${CDT_PREFIX}/lib
 # make symlinks
 pushd ${PREFIX}/lib/cmake/${PROJECT} &> /dev/null
 ln -sf ../../../${SUBPREFIX}/lib/cmake/${PROJECT}/${PROJECT}-config.cmake ${PROJECT}-config.cmake
-ln -sf ../../../${SUBPREFIX}/lib/cmake/${PROJECT}/EosioWasmToolchain.cmake EosioWasmToolchain.cmake
-ln -sf ../../../${SUBPREFIX}/lib/cmake/${PROJECT}/EosioCDTMacros.cmake EosioCDTMacros.cmake
+ln -sf ../../../${SUBPREFIX}/lib/cmake/${PROJECT}/SnaxWasmToolchain.cmake SnaxWasmToolchain.cmake
+ln -sf ../../../${SUBPREFIX}/lib/cmake/${PROJECT}/SnaxCDTMacros.cmake SnaxCDTMacros.cmake
 popd &> /dev/null
 
 create_symlink() {
@@ -47,14 +47,14 @@ create_symlink() {
    popd &> /dev/null
 }
 
-create_symlink "eosio-cc eosio-cc"
-create_symlink "eosio-cpp eosio-cpp"
-create_symlink "eosio-ld eosio-ld"
-create_symlink "eosio-pp eosio-pp"
-create_symlink "eosio-init eosio-init"
-create_symlink "eosio-abigen eosio-abigen"
-create_symlink "eosio-wasm2wast eosio-wasm2wast"
-create_symlink "eosio-wast2wasm eosio-wast2wasm"
+create_symlink "snax-cc snax-cc"
+create_symlink "snax-cpp snax-cpp"
+create_symlink "snax-ld snax-ld"
+create_symlink "snax-pp snax-pp"
+create_symlink "snax-init snax-init"
+create_symlink "snax-abigen snax-abigen"
+create_symlink "snax-wasm2wast snax-wasm2wast"
+create_symlink "snax-wast2wasm snax-wast2wasm"
 
 tar -cvzf $NAME ./${PREFIX}/*
 rm -r ${PREFIX}

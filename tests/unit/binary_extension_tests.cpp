@@ -1,18 +1,18 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
-#include <eosio/tester.hpp>
-#include <eosio/binary_extension.hpp>
+#include <snax/tester.hpp>
+#include <snax/binary_extension.hpp>
 
 using std::in_place;
 using std::move;
 
-using eosio::binary_extension;
+using snax::binary_extension;
 
-// Definitions in `eosio.cdt/libraries/eosio/binary_extension.hpp`
-EOSIO_TEST_BEGIN(binary_extension_test)
+// Definitions in `snax.cdt/libraries/snax/binary_extension.hpp`
+SNAX_TEST_BEGIN(binary_extension_test)
    silence_output(true);
 
    //// constexpr binary_extension()
@@ -223,9 +223,9 @@ EOSIO_TEST_BEGIN(binary_extension_test)
    CHECK_EQUAL( be_str_reset.has_value(), false )
 
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char* argv[]) {
-   EOSIO_TEST(binary_extension_test);
+   SNAX_TEST(binary_extension_test);
    return has_failed();
 }

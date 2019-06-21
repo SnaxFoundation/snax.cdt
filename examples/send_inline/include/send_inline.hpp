@@ -1,5 +1,5 @@
-#include <eosio/eosio.hpp>
-using namespace eosio;
+#include <snax/snax.hpp>
+using namespace snax;
 
 CONTRACT send_inline : public contract {
    public:

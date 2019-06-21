@@ -1,6 +1,6 @@
-#include <eosio/eosio.hpp>
+#include <snax/snax.hpp>
 
-using namespace eosio;
+using namespace snax;
 
 // simple macro to add line info to string
 #define STRINGIFY(x) #x
@@ -55,7 +55,7 @@ CONTRACT malloc_tests : public contract{
             ptr[i] = 'a';
          }
          for (size_t i=0; i < (max_heap-diff); i++) {
-            eosio::check(ptr[i] == 'a', "should have written to memory");
+            snax::check(ptr[i] == 'a', "should have written to memory");
          }
 
       }

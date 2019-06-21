@@ -1,19 +1,19 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
 #include <array>
 
-#include <eosio/tester.hpp>
-#include <eosio/fixed_bytes.hpp>
+#include <snax/tester.hpp>
+#include <snax/fixed_bytes.hpp>
 
 using std::array;
 
-using eosio::fixed_bytes;
+using snax::fixed_bytes;
 
-// Definitions in `eosio.cdt/libraries/eosio/fixed_bytes.hpp`
-EOSIO_TEST_BEGIN(fixed_bytes_test)
+// Definitions in `snax.cdt/libraries/snax/fixed_bytes.hpp`
+SNAX_TEST_BEGIN(fixed_bytes_test)
    silence_output(true);
 
    //// constexpr fixed_bytes()
@@ -177,9 +177,9 @@ EOSIO_TEST_BEGIN(fixed_bytes_test)
    CHECK_EQUAL( fb_cmp1 >= fb_cmp2, false )
 
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char* argv[]) {
-   EOSIO_TEST(fixed_bytes_test);
+   SNAX_TEST(fixed_bytes_test);
    return has_failed();
 }

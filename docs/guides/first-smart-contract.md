@@ -1,15 +1,15 @@
 ### Building your first smart contract
 ```c++
-#include <eosio/eosio.hpp>
-#include <eosio/name.hpp>
+#include <snax/snax.hpp>
+#include <snax/name.hpp>
 
-class [[eosio::contract]] hello : public eosio::contract {
+class [[snax::contract]] hello : public snax::contract {
    public:
-      using eosio::contract::contract;
+      using snax::contract::contract;
 
-      [[eosio::action]]
-      void hi(eosio::name nm) {
-         eosio::print_f("Hello, %\n", nm);
+      [[snax::action]]
+      void hi(snax::name nm) {
+         snax::print_f("Hello, %\n", nm);
       }
 };
 ```
@@ -18,7 +18,7 @@ class [[eosio::contract]] hello : public eosio::contract {
 - You should then see the hello.cpp file
 - Now run the compiler
 ```sh
-$ eosio-cpp -abigen hello.cpp -o hello.wasm
+$ snax-cpp -abigen hello.cpp -o hello.wasm
 ```
 - Or with CMake
 ```sh

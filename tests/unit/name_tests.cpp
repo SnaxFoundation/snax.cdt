@@ -1,24 +1,24 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
 #include <limits>
 #include <string>
 
-#include <eosio/eosio.hpp>
-#include <eosio/tester.hpp>
+#include <snax/snax.hpp>
+#include <snax/tester.hpp>
 
 using std::numeric_limits;
 using std::string;
 
-using eosio::name;
+using snax::name;
 
 static constexpr uint64_t u64min = numeric_limits<uint64_t>::min(); // 0ULL
 static constexpr uint64_t u64max = numeric_limits<uint64_t>::max(); // 18446744073709551615ULL
 
-// Definitions in `eosio.cdt/libraries/eosio/name.hpp`
-EOSIO_TEST_BEGIN(name_type_test)
+// Definitions in `snax.cdt/libraries/snax/name.hpp`
+SNAX_TEST_BEGIN(name_type_test)
    silence_output(true);
 
    //// constexpr name()
@@ -100,37 +100,37 @@ EOSIO_TEST_BEGIN(name_type_test)
    CHECK_EQUAL( name{""}.length(), 0 )
    CHECK_EQUAL( name{"e"}.length(), 1 )
    CHECK_EQUAL( name{"eo"}.length(), 2 )
-   CHECK_EQUAL( name{"eos"}.length(), 3 )
-   CHECK_EQUAL( name{"eosi"}.length(), 4 )
-   CHECK_EQUAL( name{"eosio"}.length(), 5 )
-   CHECK_EQUAL( name{"eosioa"}.length(), 6 )
-   CHECK_EQUAL( name{"eosioac"}.length(), 7 )
-   CHECK_EQUAL( name{"eosioacc"}.length(), 8 )
-   CHECK_EQUAL( name{"eosioacco"}.length(), 9 )
-   CHECK_EQUAL( name{"eosioaccou"}.length(), 10 )
-   CHECK_EQUAL( name{"eosioaccoun"}.length(), 11 )
-   CHECK_EQUAL( name{"eosioaccount"}.length(), 12 )
-   CHECK_EQUAL( name{"eosioaccountj"}.length(), 13 )
+   CHECK_EQUAL( name{"snax"}.length(), 3 )
+   CHECK_EQUAL( name{"snaxi"}.length(), 4 )
+   CHECK_EQUAL( name{"snax"}.length(), 5 )
+   CHECK_EQUAL( name{"snaxa"}.length(), 6 )
+   CHECK_EQUAL( name{"snaxac"}.length(), 7 )
+   CHECK_EQUAL( name{"snaxacc"}.length(), 8 )
+   CHECK_EQUAL( name{"snaxacco"}.length(), 9 )
+   CHECK_EQUAL( name{"snaxaccou"}.length(), 10 )
+   CHECK_EQUAL( name{"snaxaccoun"}.length(), 11 )
+   CHECK_EQUAL( name{"snaxaccount"}.length(), 12 )
+   CHECK_EQUAL( name{"snaxaccountj"}.length(), 13 )
 
    CHECK_ASSERT( "string is too long to be a valid name", ([]() {name{"12345abcdefghj"}.length();}) )
    
    // ----------------------------
    // constexpr name suffix()const
-   CHECK_EQUAL( name{".eosioaccounj"}.suffix(), name{"eosioaccounj"} )
+   CHECK_EQUAL( name{".snaxaccounj"}.suffix(), name{"snaxaccounj"} )
    CHECK_EQUAL( name{"e.osioaccounj"}.suffix(), name{"osioaccounj"} )
    CHECK_EQUAL( name{"eo.sioaccounj"}.suffix(), name{"sioaccounj"} )
-   CHECK_EQUAL( name{"eos.ioaccounj"}.suffix(), name{"ioaccounj"} )
-   CHECK_EQUAL( name{"eosi.oaccounj"}.suffix(), name{"oaccounj"} )
-   CHECK_EQUAL( name{"eosio.accounj"}.suffix(), name{"accounj"} )
-   CHECK_EQUAL( name{"eosioa.ccounj"}.suffix(), name{"ccounj"} )
-   CHECK_EQUAL( name{"eosioac.counj"}.suffix(), name{"counj"} )
-   CHECK_EQUAL( name{"eosioacc.ounj"}.suffix(), name{"ounj"} )
-   CHECK_EQUAL( name{"eosioacco.unj"}.suffix(), name{"unj"} )
-   CHECK_EQUAL( name{"eosioaccou.nj"}.suffix(), name{"nj"} )
-   CHECK_EQUAL( name{"eosioaccoun.j"}.suffix(), name{"j"} )
+   CHECK_EQUAL( name{"snaxaccounj"}.suffix(), name{"ioaccounj"} )
+   CHECK_EQUAL( name{"snaxi.oaccounj"}.suffix(), name{"oaccounj"} )
+   CHECK_EQUAL( name{"snax.accounj"}.suffix(), name{"accounj"} )
+   CHECK_EQUAL( name{"snaxa.ccounj"}.suffix(), name{"ccounj"} )
+   CHECK_EQUAL( name{"snaxac.counj"}.suffix(), name{"counj"} )
+   CHECK_EQUAL( name{"snaxacc.ounj"}.suffix(), name{"ounj"} )
+   CHECK_EQUAL( name{"snaxacco.unj"}.suffix(), name{"unj"} )
+   CHECK_EQUAL( name{"snaxaccou.nj"}.suffix(), name{"nj"} )
+   CHECK_EQUAL( name{"snaxaccoun.j"}.suffix(), name{"j"} )
 
    CHECK_EQUAL( name{"e.o.s.i.o.a.c"}.suffix(), name{"c"} )
-   CHECK_EQUAL( name{"eos.ioa.cco"}.suffix(), name{"cco"} )
+   CHECK_EQUAL( name{"snaxa.cco"}.suffix(), name{"cco"} )
 
    // -----------------------------
    // constexpr operator raw()const
@@ -370,9 +370,9 @@ EOSIO_TEST_BEGIN(name_type_test)
    CHECK_EQUAL( name{"zzzzzzzzzzzzj"}, "zzzzzzzzzzzzj"_n )
 
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char* argv[]) {
-   EOSIO_TEST(name_type_test);
+   SNAX_TEST(name_type_test);
    return has_failed();
 }

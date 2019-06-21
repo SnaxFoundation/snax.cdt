@@ -1,13 +1,13 @@
 #include <boost/test/unit_test.hpp>
-#include <eosio/chain/contract_table_objects.hpp>
-#include <eosio/chain/global_property_object.hpp>
-#include <eosio/chain/resource_limits.hpp>
-#include <eosio/chain/wast_to_wasm.hpp>
+#include <snax/chain/contract_table_objects.hpp>
+#include <snax/chain/global_property_object.hpp>
+#include <snax/chain/resource_limits.hpp>
+#include <snax/chain/wast_to_wasm.hpp>
 #include <cstdlib>
 #include <iostream>
 #include <boost/test/included/unit_test.hpp>
 #include <fc/log/logger.hpp>
-#include <eosio/chain/exceptions.hpp>
+#include <snax/chain/exceptions.hpp>
 #include <Runtime/Runtime.h>
 
 #define BOOST_TEST_STATIC_LINK

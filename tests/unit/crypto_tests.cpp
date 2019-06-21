@@ -1,16 +1,16 @@
 /**
  *  @file
- *  @copyright defined in eosio.cdt/LICENSE.txt
+ *  @copyright defined in snax.cdt/LICENSE.txt
  */
 
-#include <eosio/tester.hpp>
-#include <eosio/crypto.hpp>
+#include <snax/tester.hpp>
+#include <snax/crypto.hpp>
 
-using eosio::public_key;
-using eosio::signature;
+using snax::public_key;
+using snax::signature;
 
-// Definitions in `eosio.cdt/libraries/eosio/crypto.hpp`
-EOSIO_TEST_BEGIN(public_key_type_test)
+// Definitions in `snax.cdt/libraries/snax/crypto.hpp`
+SNAX_TEST_BEGIN(public_key_type_test)
    silence_output(true);
 
    // -----------------------------------------------------
@@ -24,10 +24,10 @@ EOSIO_TEST_BEGIN(public_key_type_test)
    CHECK_EQUAL( (public_key{0, std::array<char, 33>{1}} != public_key{0, std::array<char, 33>{}}), true  )
    
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
-// Definitions in `eosio.cdt/libraries/eosio/crypto.hpp`
-EOSIO_TEST_BEGIN(signature_type_test)
+// Definitions in `snax.cdt/libraries/snax/crypto.hpp`
+SNAX_TEST_BEGIN(signature_type_test)
    silence_output(true);
 
    // ---------------------------------------------------
@@ -41,10 +41,10 @@ EOSIO_TEST_BEGIN(signature_type_test)
    CHECK_EQUAL( (signature{0, std::array<char, 65>{}}  != signature{0, std::array<char, 65>{}}), false )
    
    silence_output(false);
-EOSIO_TEST_END
+SNAX_TEST_END
 
 int main(int argc, char* argv[]) {
-   EOSIO_TEST(public_key_type_test)
-   EOSIO_TEST(signature_type_test)
+   SNAX_TEST(public_key_type_test)
+   SNAX_TEST(signature_type_test)
    return has_failed();
 }
