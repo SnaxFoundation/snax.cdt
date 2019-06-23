@@ -7,7 +7,7 @@ Snax.CDT currently supports manual build for Mac OS X, Linux x86_64.
 
 ### Guided Installation (Building from Scratch)
 ```sh
-$ git clone --recursive https://github.com/snax/snax.cdt
+$ git clone --recursive https://github.com/SnaxFoundation/snax.cdt
 $ cd snax.cdt
 $ ./build.sh
 $ sudo ./install.sh
