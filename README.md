@@ -1,5 +1,11 @@
 # Snax.CDT (Contract Development Toolkit)
 
+### Documentation
+
+[EOS 1.6.0 Smart Contract API docs](https://eosio.github.io/eosio.cdt/1.6.0/modules.html)
+
+In order to compile against current master, you should write smart contracts according to the latest (1.6.0 at the moment) specification.
+
 ### Binary Releases
 Snax.CDT currently supports manual build for Mac OS X, Linux x86_64.
 
